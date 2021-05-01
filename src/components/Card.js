@@ -6,7 +6,7 @@ function Card({onCardClick, card}) {
     }
 
     return (
-        <template className="card-template">
+        <div className="card-template">
             <article className="element">
                 <div className="element__btn-image">
                     <button type="button" className="element__delete-btn" />
@@ -22,7 +22,7 @@ function Card({onCardClick, card}) {
                     </div>
                 </div>
             </article>
-        </template>
+        </div>
     )
 }
 

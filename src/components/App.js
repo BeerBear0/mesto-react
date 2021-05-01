@@ -8,7 +8,7 @@ import ImagePopup from "./ImagePopup";
 
 import '../index.css';
 import PopupWithForm from "./PopupWithForm";
-
+;
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
     const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false)
 
     const [selectedCard, setSelectedCard] = React.useState(null);
+    // const [currentUser, setCurrentUSer] = React.useState({})
 
     function  handleEditAvatarClick() {
         setIsEditAvatarPopupOpen(true)
