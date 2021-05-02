@@ -11,7 +11,7 @@ function Card({onCardClick, card}) {
                 <div className="element__btn-image">
                     <button type="button" className="element__delete-btn" />
                     <button type="button" className="element__open-image">
-                        <img className="element__image" onClick={() => {handleImageClick()}} src={card.link} alt="Фото" />
+                        <img className="element__image" onClick={() => {handleImageClick()}} src={card.link} alt={card.name} />
                     </button>
                 </div>
                 <div className="element__info">

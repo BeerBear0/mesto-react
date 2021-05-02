@@ -6,9 +6,8 @@ import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
 
 
-import '../index.css';
 import PopupWithForm from "./PopupWithForm";
-;
+
 
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
     const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false)
 
     const [selectedCard, setSelectedCard] = React.useState(null);
-    // const [currentUser, setCurrentUSer] = React.useState({})
 
     function  handleEditAvatarClick() {
         setIsEditAvatarPopupOpen(true)
@@ -45,13 +43,13 @@ function App() {
     }
 
   return (
-      <body className="root">
+      <>
       <Header />
       <Main
-          onEditAvatar={() => {handleEditAvatarClick()}}
-          onEditProfile={() => {handleEditProfileClick()}}
-          onAddPlace={() => {handleAddPlaceClick()}}
-          onCardClick={(card) => {handleCardClick(card)}}
+          onEditAvatar={handleEditAvatarClick}
+          onEditProfile={handleEditProfileClick}
+          onAddPlace={handleAddPlaceClick}
+          onCardClick={handleCardClick}
       />
       <Footer />
 
@@ -84,7 +82,6 @@ function App() {
               required
           />
           <span className="popup__input-error popup__input-error_two" id="job-input-error" />
-          <button className="popup__submit" type="submit">Сохранить</button>
       </PopupWithForm>
 
       <PopupWithForm
@@ -113,7 +110,6 @@ function App() {
               required
           />
           <span className="popup__input-error popup__input-error_two" id="url-input-error" />
-          <button className="popup__submit" type="submit">Создать</button>
       </PopupWithForm>
 
       <PopupWithForm
@@ -131,7 +127,6 @@ function App() {
               required
           />
           <span className="popup__input-error" id="url-avatar-error" />
-          <button className="popup__submit" type="submit">Сохранить</button>
       </PopupWithForm>
 
       <PopupWithForm
@@ -144,12 +139,11 @@ function App() {
           name={`open-imagePopup`}
           card={selectedCard}
           isOpen={isImagePopupOpen}
-          isClose={closeAllPopup}
+          onClose={closeAllPopup}
       />}
 
-      </body>
+      </>
 
   );
 }
-
 export default App;
