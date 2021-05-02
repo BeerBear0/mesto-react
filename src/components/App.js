@@ -131,9 +131,9 @@ function App() {
 
       <PopupWithForm
           title="ВЫ уверены?"
-          name="delete-card">
-          <button className="popup__submit" type="submit">Да</button>
-      </PopupWithForm>
+          name="delete-card"
+          btnText="Да" />
+
 
       {selectedCard && <ImagePopup
           name={`open-imagePopup`}
