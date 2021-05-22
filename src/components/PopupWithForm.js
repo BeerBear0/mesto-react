@@ -13,6 +13,7 @@ function PopupWithForm({name, title, isOpen, onClose, children}) {
                     type="reset"
                     aria-label="закрыть"
                     onClick={onClose}
+
                 />
                 <h3 className="popup__title">{title}</h3>
                 {children}
