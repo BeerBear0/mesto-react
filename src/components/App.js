@@ -90,7 +90,7 @@ function App()
 
         api.postUserCard({name, link})
             .then(card => {
-                setCards([...cards, card])
+                setCards([card, ...cards])
                 closeAllPopup();
             })
             .catch(err => console.log(err));

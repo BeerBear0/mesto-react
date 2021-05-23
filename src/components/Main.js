@@ -32,19 +32,17 @@ function Main( props ) {
 
             <section className="elements">
                 {
-                    cards.map((card, idx) => {
+                    cards.map((card) => {
                         return (
                             <Card
                               card={card}
-                              key={idx}
+                              key={card._id}
                               onCardClick={onCardClick}
                               onCardLike={onCardLike}
                               onCardDelete={onCardDelete}
                             />
                         )
                     })
-                }
-
                 }
 
             </section>
