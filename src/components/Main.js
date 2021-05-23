@@ -2,7 +2,7 @@ import React from "react";
 import editIcon from "../images/EditButton.svg";
 import addIcon from "../images/addBtn.svg";
 import Card from "./Card";
-import { CurrentUserContext } from "../contexts/CurrentUserContexts";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 function Main( props ) {
     const { cards, onEditAvatar, onEditProfile, onAddPlace, onCardClick, onCardLike, onCardDelete} = props;
 

@@ -4,11 +4,11 @@ import Main from "./Main";
 import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
 import PopupWithForm from "./PopupWithForm";
-import { api } from "../utils/Api";
+import { api } from "../utils/api";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
-import { CurrentUserContext } from "../contexts/CurrentUserContexts";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function App()
 {
