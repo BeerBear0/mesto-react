@@ -21,20 +21,12 @@ function App()
     const [cards, setCards] = React.useState([]);
 
     React.useEffect(() => {
-        api.getInitialCards()
-            .then(initialCards => {
-                setCards(initialCards)
-            })
-            .catch(err => console.error(err))
-    }, [])
-
-    React.useEffect(() => {
-        api.getUserInfo()
-            .then(userData => {
-                setCurrentUser(userData)
-            })
-            .catch(err => console.error(err))
-        //
+        Promise.all([api.getInitialCards(), api.getUserInfo()])
+            .then(([cardsData, userData]) => {
+            setCards(cardsData);
+            setCurrentUser(userData);
+        })
+            .catch(err => console.log(err))
     }, [])
 
         function handleCardLike(card) {
@@ -77,16 +69,16 @@ function App()
         setSelectedCard(false)
     }
 
-    function handleUpdateUser(data) {
-        api.patchUserProfile(data)
+    function handleUpdateUser({name, about}) {
+        api.patchUserProfile({name, about})
             .then(res => {
                 setCurrentUser(res);
                 closeAllPopup();
             }).catch(err => console.error(err));
     }
 
-    function handleUpdateAvatar(avatar) {
-        api.patchAvatar(avatar)
+    function handleUpdateAvatar({avatar}) {
+        api.patchAvatar({avatar})
             .then(res => {
                 setCurrentUser(res);
                 closeAllPopup();
@@ -94,14 +86,16 @@ function App()
             .catch(err => console.error(err));
     }
 
-    function handleAddPlaceSubmit(item) {
-        api.postUserCard(item)
+    function handleAddPlaceSubmit({name, link}) {
+
+        api.postUserCard({name, link})
             .then(card => {
                 setCards([...cards, card])
                 closeAllPopup();
             })
             .catch(err => console.log(err));
     }
+
     return (
         <CurrentUserContext.Provider value={currentUser}>
             <Header />
@@ -136,7 +130,6 @@ function App()
             <PopupWithForm
                 title="ВЫ уверены?"
                 name="delete-card"
-
                 btnText="Да" />
 
 

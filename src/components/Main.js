@@ -8,24 +8,6 @@ function Main( props ) {
 
     const currentUser = React.useContext(CurrentUserContext);
 
-    // const [cards, setCards] = React.useState([]);
-    // const [currentUser, setCurrentUser] = React.useState({});
-
-    // React.useEffect(() => {
-    //     // api.getUserInfo()
-    //     //     .then(userData => {
-    //     //         setCurrentUser(userData)
-    //     //     })
-    //     //     .catch(err => console.error(err))
-    //
-    //     api.getInitialCards()
-    //         .then(fetchResult => {
-    //             setCards(fetchResult)
-    //         })
-    //         .catch(err => console.error(err))
-    // }, [])
-
-
     return (
         <main className="content">
 

@@ -5,6 +5,8 @@ function AddPlacePopup({isOpen, onClose, onAddPlace}) {
     const [cardName, setCardName] = React.useState('');
     const [cardLinkImg, setCardLingImg] = React.useState('');
 
+
+
     function handleChangeName(e) {
         setCardName(e.target.value);
     }
@@ -15,7 +17,6 @@ function AddPlacePopup({isOpen, onClose, onAddPlace}) {
 
     function handleSubmit (evt) {
         evt.preventDefault();
-
         onAddPlace({
             name: cardName,
             link: cardLinkImg
@@ -28,7 +29,7 @@ function AddPlacePopup({isOpen, onClose, onAddPlace}) {
             name="New-place"
             isOpen={isOpen}
             onClose={onClose}
-            onAddCard={handleSubmit}
+            onSubmit={handleSubmit}
         >
             <input
                 className="popup__input popup__input_type_title"

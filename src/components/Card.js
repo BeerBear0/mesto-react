@@ -5,16 +5,14 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
     const currentUser = React.useContext(CurrentUserContext);
 
     const isOwn = card.owner._id === currentUser._id;
-
-    const cardDeleteButtonClassName = (
-        `element__delete-btn ${isOwn ? '' : 'element__delete-btn_active'}`
+    const cardDeleteButtonClassName = (`element__delete-btn ${!isOwn ? '' : 'element__delete-btn_active'}`
     );
 
     const isLike = card.likes.some(item => item._id === currentUser._id);
-
     const cardLikeButtonClassName = (
-        `element__like-btn ${isLike && 'element__like-btn_active'}`
+        `element__like-btn ${isLike && 'element__like_active'}`
     )
+
     function handleImageClick() {
         onCardClick(card);
     }
@@ -24,7 +22,6 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
     function handleCardLikeClick() {
         onCardLike(card);
     }
-
     return (
         <div className="card-template">
             <article className="element">

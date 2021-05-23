@@ -65,34 +65,32 @@ class Api {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({
-                name: input.title,
-                link: input.url
+                name: input.name,
+                link: input.link
             })
         })
             .then(this._handleResponse)
     }
-    changeLikeCardStatus(cardId, isLiked) {
-        if (isLiked) {
-            return fetch(`${this._address}/cards/likes/${cardId}`,
-                {
-                    method: 'Delete',
-                    headers: {
-                        authorization: this._token
-                    }
-                }).then(this._handleResponse);
-        } else {
-            return fetch(`${this._address}/cards/likes/${cardId}`,
-                {
-                    method: 'PUT',
-                    headers: {
-                        authorization: this._token
-                    }
-                }).then(this._handleResponse);
+    changeLikeCardStatus(id, isLiked) {
+        if(isLiked) {
+            return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+                method: 'Delete',
+                headers: this._headers
+            })
+                .then(this._handleResponse)
+        }
+        else {
+            return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+                method: 'PUT',
+                headers: this._headers
+            })
+                .then(this._handleResponse)
         }
     }
+
     //  постановка лаек
     // putLike(id) {
-    //     return fetch(`${this._baseUrl}/cards/likes/${id}`, {
+    //     return fetch(`${this._baseUrl}/cards/likes/${id}`,{
     //             method: 'PUT',
     //             headers: this._headers
     //         }
