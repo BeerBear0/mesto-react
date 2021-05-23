@@ -98,48 +98,49 @@ function App()
 
     return (
         <CurrentUserContext.Provider value={currentUser}>
-            <Header />
-            <Main
-                cards={cards}
-                onEditAvatar={handleEditAvatarClick}
-                onEditProfile={handleEditProfileClick}
-                onAddPlace={handleAddPlaceClick}
-                onCardClick={handleCardClick}
-                onCardLike={handleCardLike}
-                onCardDelete={handleCardDelete}
+            <div className='root' >
+                <Header />
+                <Main
+                    cards={cards}
+                    onEditAvatar={handleEditAvatarClick}
+                    onEditProfile={handleEditProfileClick}
+                    onAddPlace={handleAddPlaceClick}
+                    onCardClick={handleCardClick}
+                    onCardLike={handleCardLike}
+                    onCardDelete={handleCardDelete}
 
-            />
-            <Footer />
-
-
-            <EditProfilePopup
-                isOpen={isEditProfilePopupOpen}
-                onClose={closeAllPopup}
-                onUpdateUser={handleUpdateUser} />
-
-            <AddPlacePopup
-                isOpen={isAddPlacePopupOpen}
-                onClose={closeAllPopup}
-                onAddPlace={handleAddPlaceSubmit} />
-
-            <EditAvatarPopup
-                isOpen={isEditAvatarPopupOpen}
-                onClose={closeAllPopup}
-                onUpdateAvatar={handleUpdateAvatar} />
-
-            <PopupWithForm
-                title="ВЫ уверены?"
-                name="delete-card"
-                btnText="Да" />
+                />
+                <Footer />
 
 
-            {selectedCard && <ImagePopup
-                name={`open-imagePopup`}
-                card={selectedCard}
-                // isOpen={isImagePopupOpen}
-                onClose={closeAllPopup}
-            />}
+                <EditProfilePopup
+                    isOpen={isEditProfilePopupOpen}
+                    onClose={closeAllPopup}
+                    onUpdateUser={handleUpdateUser} />
 
+                <AddPlacePopup
+                    isOpen={isAddPlacePopupOpen}
+                    onClose={closeAllPopup}
+                    onAddPlace={handleAddPlaceSubmit} />
+
+                <EditAvatarPopup
+                    isOpen={isEditAvatarPopupOpen}
+                    onClose={closeAllPopup}
+                    onUpdateAvatar={handleUpdateAvatar} />
+
+                <PopupWithForm
+                    title="ВЫ уверены?"
+                    name="delete-card"
+                    btnText="Да" />
+
+
+                {selectedCard && <ImagePopup
+                    name={`open-imagePopup`}
+                    card={selectedCard}
+                    // isOpen={isImagePopupOpen}
+                    onClose={closeAllPopup}
+                />}
+            </div>
         </CurrentUserContext.Provider>
 
     );
